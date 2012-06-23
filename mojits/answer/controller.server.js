@@ -2,12 +2,12 @@
  * Copyright (c) 2012 Yahoo! Inc. All rights reserved.
  */
 /*jslint anon:true, sloppy:true, nomen:true*/
-YUI.add('Question', function(Y, NAME) {
+YUI.add('answer', function(Y, NAME) {
 
 /**
- * The Question module.
+ * The answer module.
  *
- * @module Question
+ * @module answer
  */
 
     /**
@@ -29,31 +29,19 @@ YUI.add('Question', function(Y, NAME) {
          *        to the Mojito API.
          */
         index: function(ac) {
-            ac.models.QuestionModelFoo.getData(function(err, data) {
+            ac.models.answerModelFoo.getData(function(err, data) {
                 if (err) {
                     ac.error(err);
                     return;
                 }
-                //ac.assets.addCss('./index.css');
+                ac.assets.addCss('./index.css');
                 ac.done({
                     status: 'Mojito is working.',
                     data: data
                 });
             });
-        },
-		list: function(ac) {
-            ac.models.QuestionModelFoo.getQuestions(function(err, data) {
-                if (err) {
-                    ac.error(err);
-                    return;
-                }
-                //ac.assets.addCss('./index.css');
-                ac.done({
-					data:JSON.stringify(data)
-                });
-            });
-		}
+        }
+
     };
 
-}, '0.0.1', {requires: ['mojito', 'QuestionModelFoo']});
-
+}, '0.0.1', {requires: ['mojito', 'answerModelFoo']});

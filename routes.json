@@ -9,5 +9,10 @@
 			"verbs":["get"],
 			"path":"/question/list",
 			"call":"q.list"
+		},
+		"question thanks":{
+			"verbs":["get"],
+			"path":"/question/thanks",
+			"call":"q.thanks"
 		}
 }]
