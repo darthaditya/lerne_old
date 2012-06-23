@@ -1,4 +1,4 @@
-CREATE DATABASE  `lerne1` ;
+CREATE DATABASE  `lerne` ;
 
 CREATE TABLE `questions` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,

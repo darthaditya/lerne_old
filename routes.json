@@ -5,6 +5,11 @@
 			"path":"/question/",
 			"call":"q.index"
 		},
+		"question add":{
+			"verbs":["get","post"],
+			"path":"/question/add",
+			"call":"q.add"
+		},
 		"question list":{
 			"verbs":["get"],
 			"path":"/question/list",
