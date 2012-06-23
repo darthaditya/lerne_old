@@ -16,6 +16,14 @@ YUI.add('QuestionModelFoo', function(Y, NAME) {
      * @class QuestionModelFoo
      * @constructor
      */
+	var mysqlCli = require('mysql');
+	var mysqlClient = mysqlCli.createClient({
+        'host' : 'localhost',
+        'port' : 3306,
+        'user' : 'root',
+        'password' : 'root'
+    });
+
     Y.mojito.models[NAME] = {
 
         init: function(config) {
@@ -30,8 +38,24 @@ YUI.add('QuestionModelFoo', function(Y, NAME) {
          */
         getData: function(callback) {
             callback(null, { some: 'data' });
-        }
-
+        },
+		getQuestions: function(callback) {
+			mysqlClient.query(
+            'SELECT * FROM lerne.questions',
+            function selectCb(error, results, fields) {
+              if (error) {
+                  console.log('getProduct Error: ' + error.message);
+                  mysqlClient.end();
+                  return;
+              }
+              var result ={
+                      meta:{
+                          totalRecords: results.length
+                      }
+                };
+              callback(null,{data:results});
+          });
+		}
     };
 
 }, '0.0.1', {requires: []});

@@ -42,9 +42,17 @@ YUI.add('Question', function(Y, NAME) {
             });
         },
 		list: function(ac) {
-			ac.done({
-                    status: 'you are in the list controller',
-			});
+            ac.models.QuestionModelFoo.getQuestions(function(err, data) {
+                if (err) {
+                    ac.error(err);
+                    return;
+                }
+                //ac.assets.addCss('./index.css');
+                ac.done({
+                    status: 'Mojito is working.',
+                    data: data
+                });
+            });
 		}
     };
 
