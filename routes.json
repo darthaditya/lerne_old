@@ -1,16 +1,13 @@
 [{
     "settings": [ "master" ],
-	"specs": {
-		"root":{
+		"question index":{
 			"verbs":["get"],
-			"path":"/",
+			"path":"/question/",
 			"call":"q.index"
 		},
 		"question list":{
 			"verbs":["get"],
 			"path":"/question/list",
-			"call":"question.list"
+			"call":"q.list"
 		}
-	}
-
 }]

@@ -1,16 +1,11 @@
 [
-    {
-        "settings": [ "master" ],
-        "specs": {
-			"q":{
-				"type":"Question"
-			}
-		}
-    },
-    {
-        "settings": [ "environment:development" ],
-        "staticHandling": {
-            "forceUpdate": true
-        }
+  {
+    "settings": [ "master" ],
+    "appPort": 8666,
+    "specs": {
+      "q": {
+        "type": "Question"
+      }
     }
+  }
 ]
