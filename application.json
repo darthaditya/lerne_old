@@ -1,7 +1,11 @@
 [
     {
         "settings": [ "master" ],
-        "specs": {}
+        "specs": {
+			"q":{
+				"type":"Question"
+			}
+		}
     },
     {
         "settings": [ "environment:development" ],
