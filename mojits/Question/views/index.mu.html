@@ -3,13 +3,23 @@
 				<div id="lr_add_question">
 					<textarea></textarea>
 				</div>
+				<div id="ls_list_questions">
+					<ul>
+						Loading Questions...
+					</ul>
+				</div>
 </div>
 <script>
-YUI().use('io', function (Y) {
+YUI().use('io','json-parse', function (Y) {
 	var uri = "/question/list";
 
     function complete(id, o, args) {
 		console.log(o);
+		var questionlist = JSON.parse(o.responseText);
+		Y.one("#ls_list_questions ul").set('innerHTML','');
+		for(var i=0;i<questionlist.data.length;i++){
+			Y.one("#ls_list_questions ul").append('<li>'+questionlist.data[i].question_text+'</li>');	
+		}
     };
 
     Y.on('io:complete', complete, Y, ['lorem', 'ipsum']);

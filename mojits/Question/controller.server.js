@@ -44,9 +44,8 @@ YUI.add('Question', function(Y, NAME) {
                     ac.error(err);
                     return;
                 }
-                ac.done({
-					data:JSON.stringify(data)
-                },{ "view": { "name": "json" } });
+				ac.http.setHeader("Content-Type","application/json");
+                ac.done(JSON.stringify(data),{ "view": { "name": "json" } });
             });
 		}
     };
