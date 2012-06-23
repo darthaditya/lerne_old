@@ -49,8 +49,7 @@ YUI.add('Question', function(Y, NAME) {
                 }
                 //ac.assets.addCss('./index.css');
                 ac.done({
-                    status: 'Mojito is working.',
-                    data: data
+					data:JSON.stringify(data)
                 });
             });
 		}
