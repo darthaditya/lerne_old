@@ -1,10 +1,18 @@
+<script src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
 <div id="{{mojit_view_id}}">
-    <dl>
-        <dt>status</dt>
-        <dd id="dd_status">{{status}}</dd>
-        <dt>data</dt>
-        <dd id="dd_data">
-            <b>some:</b> {{#data}}{{some}}{{/data}}
-        </dd>
-    </dl>
+				<div id="lr_add_question">
+					<textarea></textarea>
+				</div>
 </div>
+<script>
+YUI().use('io', function (Y) {
+	var uri = "/question/list";
+
+    function complete(id, o, args) {
+		console.log(o);
+    };
+
+    Y.on('io:complete', complete, Y, ['lorem', 'ipsum']);
+    var request = Y.io(uri);
+});
+</script>

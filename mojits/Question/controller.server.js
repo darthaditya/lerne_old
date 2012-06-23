@@ -22,17 +22,9 @@ YUI.add('Question', function(Y, NAME) {
             this.config = config;
         },
         index: function(ac) {
-            ac.models.QuestionModelFoo.getData(function(err, data) {
-                if (err) {
-                    ac.error(err);
-                    return;
-                }
-                //ac.assets.addCss('./index.css');
-                ac.done({
-                    status: 'Mojito is working.',
-                    data: data
-                });
-            });
+								//ac.assets.addCss('./index.css');
+								ac.done({
+								});
         },
 		add: function(ac) {
 			var params = ac.params.getFromUrl();
