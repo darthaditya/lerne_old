@@ -1,7 +1,9 @@
+<link rel="stylesheet" type="text/css" href="/static/lerne/assets/styles.css" />
 <script src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+
 <div id="{{mojit_view_id}}">
 				<div id="lr_add_question">
-					<textarea></textarea>
+					<textarea id="ls_add_question_text"></textarea>
 					<input type="button" id="ls_add_question_submit" value="Add Question"/>
 				</div>
 				<div id="ls_list_questions">
@@ -10,20 +12,9 @@
 					</ul>
 				</div>
 </div>
-<script>
-YUI().use('io','json-parse', function (Y) {
-	var uri = "/question/list";
-
-    function complete(id, o, args) {
-		console.log(o);
-		var questionlist = JSON.parse(o.responseText);
-		Y.one("#ls_list_questions ul").set('innerHTML','');
-		for(var i=0;i<questionlist.data.length;i++){
-			Y.one("#ls_list_questions ul").append('<li>'+questionlist.data[i].question_text+'</li>');	
-		}
-    };
-
-    Y.on('io:complete', complete, Y, ['lorem', 'ipsum']);
-    var request = Y.io(uri);
+<script src="/static/Question/assets/main.js"></script>
+<script type="text/javascript">
+YUI().use('lr-question', function (Y) {
+	Y.LrQuestion.init();
 });
 </script>

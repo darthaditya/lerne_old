@@ -27,15 +27,13 @@ YUI.add('Question', function(Y, NAME) {
 								});
         },
 		add: function(ac) {
-			var params = ac.params.getFromUrl();
+			var params = ac.params.getFromBody();
 			ac.models.QuestionModelFoo.addQuestion(function(err,data){
                 if (err) {
                     ac.error(err);
                     return;
                 }
-                ac.done({
-					data:JSON.stringify(data)
-                },{ "view": { "name": "json" } });
+                ac.done(JSON.stringify(data),{ "view": { "name": "json" } });
 			},params);
 		},
 		list: function(ac) {
