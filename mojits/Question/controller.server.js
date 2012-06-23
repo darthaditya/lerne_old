@@ -21,13 +21,6 @@ YUI.add('Question', function(Y, NAME) {
         init: function(config) {
             this.config = config;
         },
-
-        /**
-         * Method corresponding to the 'index' action.
-         *
-         * @param ac {Object} The ActionContext that provides access
-         *        to the Mojito API.
-         */
         index: function(ac) {
             ac.models.QuestionModelFoo.getData(function(err, data) {
                 if (err) {
@@ -41,19 +34,29 @@ YUI.add('Question', function(Y, NAME) {
                 });
             });
         },
+		add: function(ac) {
+			var params = ac.params.getFromUrl();
+			ac.models.QuestionModelFoo.addQuestion(function(err,data){
+                if (err) {
+                    ac.error(err);
+                    return;
+                }
+                ac.done({
+					data:JSON.stringify(data)
+                },{ "view": { "name": "json" } });
+			},params);
+		},
 		list: function(ac) {
             ac.models.QuestionModelFoo.getQuestions(function(err, data) {
                 if (err) {
                     ac.error(err);
                     return;
                 }
-                //ac.assets.addCss('./index.css');
                 ac.done({
 					data:JSON.stringify(data)
-                });
+                },{ "view": { "name": "json" } });
             });
 		}
     };
-
 }, '0.0.1', {requires: ['mojito', 'QuestionModelFoo']});
 

@@ -39,6 +39,22 @@ YUI.add('QuestionModelFoo', function(Y, NAME) {
         getData: function(callback) {
             callback(null, { some: 'data' });
         },
+		addQuestion: function(callback, params) {
+			var query = 'INSERT INTO lerne.questions(id,question_text,creator,created) values("","'+params.text+'","","")';
+			mysqlClient.query(
+            query ,
+            function selectCb(error, results, fields) {
+              if (error) {
+                  console.log('getProduct Error: ' + error.message);
+                  mysqlClient.end();
+                  return;
+              }
+              var results ={
+					code: 200
+                };
+              callback(null,{data:results});
+          });
+		},
 		getQuestions: function(callback) {
 			mysqlClient.query(
             'SELECT * FROM lerne.questions',
