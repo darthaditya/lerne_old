@@ -1,13 +1,29 @@
 YUI().add('lr-question',function(Y){
 	Y.namespace('LrQuestion');
 	var YAHOO = Y.YUI2;
+	var askButton = Y.one('#ls_add_question_submit');
+	var askText = Y.one('#ls_add_question_text');
+
 	Y.LrQuestion = {
 		init: function(){
 				privateFunc.listQuestions();
+				Y.on('keyup',privateFunc.enableSubmit,'#ls_add_question_text');
 				Y.on('click',privateFunc.addQuestion,"#ls_add_question_submit");
 			},
 	};
+
 	var privateFunc = {
+		enableSubmit : function(){
+			var text = Y.one('#ls_add_question_text').get('value');
+			//trim white spaces in 'text'
+			if (text){
+				Y.one('#ls_add_question_submit_disabled').setStyle('display','none');
+				Y.one('#ls_add_question_submit').setStyle('display','');
+			}else{
+				Y.one('#ls_add_question_submit_disabled').setStyle('display','');
+				Y.one('#ls_add_question_submit').setStyle('display','none');
+			}
+		},
 		addQuestion : function(){
 			var text = Y.one('#ls_add_question_text').get('value');
 			var url = "/question/add";
@@ -37,4 +53,4 @@ YUI().add('lr-question',function(Y){
 			var request = YAHOO.util.Connect.asyncRequest('GET', url, callback); 
 		}
 	};
-}, '0.0.1', {requires: ['io', 'json-parse','yui2-connection']})
+}, '0.0.1', {requires: ['node','io', 'json-parse','yui2-connection']})
