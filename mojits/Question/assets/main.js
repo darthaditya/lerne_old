@@ -16,6 +16,9 @@ YUI().add('lr-question',function(Y){
 		enableSubmit : function(){
 			var text = Y.one('#ls_add_question_text').get('value');
 			//trim white spaces in 'text'
+			if(text.replace(/\s/g,"") == ""){
+				text = '';
+			}	
 			if (text){
 				Y.one('#ls_add_question_submit_disabled').setStyle('display','none');
 				Y.one('#ls_add_question_submit').setStyle('display','');
