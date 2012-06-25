@@ -3,7 +3,6 @@ YUI().add('lr-question',function(Y){
 	var YAHOO = Y.YUI2;
 	var askButton = Y.one('#ls_add_question_submit');
 	var askText = Y.one('#ls_add_question_text');
-
 	Y.LrQuestion = {
 		init: function(){
 				privateFunc.listQuestions();
@@ -14,11 +13,12 @@ YUI().add('lr-question',function(Y){
 
 	var privateFunc = {
 		enableSubmit : function(){
-			var text = Y.one('#ls_add_question_text').get('value');
-			//trim white spaces in 'text'
-			if(text.replace(/\s/g,"") == ""){
-				text = '';
-			}	
+			var text = Y.Lang.trim(Y.one('#ls_add_question_text').get('value'));
+			//Validation for only white spaces in 'text'
+			//if(Y.Lang.trim (text) == ""){
+			//	text = '';
+			//}
+			//text = Y.Lang.trim (text);
 			if (text){
 				Y.one('#ls_add_question_submit_disabled').setStyle('display','none');
 				Y.one('#ls_add_question_submit').setStyle('display','');
@@ -28,7 +28,7 @@ YUI().add('lr-question',function(Y){
 			}
 		},
 		addQuestion : function(){
-			var text = Y.one('#ls_add_question_text').get('value');
+			var text = Y.Lang.trim(Y.one('#ls_add_question_text').get('value'));
 			var url = "/question/add";
 			var postdata = "text="+text;
 			var callback = {
