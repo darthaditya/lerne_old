@@ -46,7 +46,7 @@ YUI().add('lr-question',function(Y){
 				success:function(data) {
 					var questionlist = JSON.parse(data.responseText);
 					Y.one("#ls_list_questions ul").set('innerHTML','');
-					for(var i=0;i<questionlist.data.length;i++){
+					for(var i=0; i<questionlist.data.length; i++){
 						Y.one("#ls_list_questions ul").append('<li>'+questionlist.data[i].question_text+'</li>');   
 					}
 				},
