@@ -1,5 +1,10 @@
 [{
     "settings": [ "master" ],
+		"_framed_view": {
+		  "verbs": ["get"],
+		  "path": "/",
+		  "call": "layout.index"
+		},
 		"question index":{
 			"verbs":["get"],
 			"path":"/question/",

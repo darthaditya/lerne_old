@@ -1,11 +1,29 @@
 [
-  {
-    "settings": [ "master" ],
-    "appPort": 8666,
-    "specs": {
-      "q": {
-        "type": "Question"
-      }
-    }
-  }
+	{
+		"settings": [ "master" ],
+		"appPort": 8666,
+		"specs": {
+			"layout" : {
+				"type" : "HTMLFrameMojit",
+				"config": {
+					"title": "HTMLFrameMojit Example",
+					"child" : {
+						"type" : "layout",
+						"children":{
+						},
+						"assets": {
+							"top": {
+								"css": [
+									"/static/lerne/assets/styles.css"
+								]
+							}
+						}
+					}
+				}
+			},
+			"q": {
+				"type": "Question"
+			}
+		}
+	}
 ]

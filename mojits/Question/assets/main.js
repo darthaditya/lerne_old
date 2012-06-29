@@ -28,7 +28,7 @@ YUI().add('lr-question',function(Y){
 					var questionlist = JSON.parse(data.responseText);
 					Y.one("#ls_list_questions ul").set('innerHTML','');
 					for(var i=0;i<questionlist.data.length;i++){
-						Y.one("#ls_list_questions ul").append('<li>'+questionlist.data[i].question_text+'</li>');   
+						Y.one("#ls_list_questions ul").append('<li><div class="lr_user_image"></div><div class="lr_question_text">'+questionlist.data[i].question_text+'</div></li>');   
 					}
 				},
 				failure:function(){
