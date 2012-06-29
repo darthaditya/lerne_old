@@ -1,0 +1,13 @@
+.lr_user_image{
+	float:left;
+	height:66px;
+	width:66px;
+	padding:2px;
+	border:1px solid #000000;
+	margin-right:10px;
+}
+.ls_list_questions ul li{
+	clear:both;
+	height:70px;
+	background-color:#E0E0E0;
+}
