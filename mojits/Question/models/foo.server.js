@@ -40,7 +40,7 @@ YUI.add('QuestionModelFoo', function(Y, NAME) {
             callback(null, { some: 'data' });
         },
 		addQuestion: function(callback, params) {
-			var query = 'INSERT INTO lerne.questions(id,question_text,creator,created) values("","'+params.text+'","","")';
+			var query = 'INSERT INTO lerne.questions(id,question_text,creator,created) values("","'+params.text+'","",NOW())';
 			mysqlClient.query(
             query ,
             function selectCb(error, results, fields) {
