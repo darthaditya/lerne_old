@@ -22,9 +22,11 @@ YUI().add('lr-question',function(Y){
 			if (text){
 				Y.one('#ls_add_question_submit_disabled').setStyle('display','none');
 				Y.one('#ls_add_question_submit').setStyle('display','');
+				Y.one('#ls_add_question_text').setAttribute('class','textarea-focused'); 
 			}else{
 				Y.one('#ls_add_question_submit_disabled').setStyle('display','');
 				Y.one('#ls_add_question_submit').setStyle('display','none');
+				Y.one('#ls_add_question_text').setAttribute('class','');
 			}
 		},
 		addQuestion : function(){
@@ -35,6 +37,8 @@ YUI().add('lr-question',function(Y){
 				success:function(id,o,args){
 					Y.one("#ls_list_questions ul").set('innerHTML','Loading Questions...');
 					privateFunc.listQuestions();
+					Y.one('#ls_add_question_text').set('value', 'Got a question?');
+					Y.one('#ls_add_question_text').setAttribute('class','');
 				},
 				failure:function(){}
 			};

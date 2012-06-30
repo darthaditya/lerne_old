@@ -16,8 +16,8 @@ body{
 textarea{
 	margin:10px;
 	border:1px solid #ccc;
-	height:50px;
-	width:98%;
+	height:32px;
+	width:40%;
 	border:1px solid #999999;
     outline:none;
     border-radius:5px;
@@ -30,6 +30,7 @@ textarea:focus{
 	box-shadow:0 0 5px #7dbef1;
     -moz-box-shadow:0 0 5px #7dbef1;
     -webkit-box-shadow:0 0 5px #7dbef1;
+	height:64px;
 }
 .button,.button_inactive {
 	height:auto;
@@ -63,4 +64,7 @@ li:hover{
 	background-color:#E0E0E0;
 }
 
+.textarea-focused{
+	height: 64px;
+}
 
